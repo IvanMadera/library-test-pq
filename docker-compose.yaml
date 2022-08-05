@@ -1,0 +1,32 @@
+version: '3.7'
+services:
+  ############
+  #  Django  #
+  ############
+  web:
+    build: .
+    command: sh -c "python manage.py runserver" 
+    restart: unless-stopped
+    container_name: web-api
+    ports:
+      - 8000:8000
+    depends_on:
+      - db
+    env_file: .env
+
+  ############
+  # Postgres #
+  ############
+  db:
+    image: postgres:12.0-alpine
+    restart: unless-stopped
+    container_name: db-api
+    ports:
+      - 5432:5432
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    env_file:
+      - ./.env.postgres
+
+volumes:
+  postgres_data:

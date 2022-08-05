@@ -1,0 +1,13 @@
+autopep8
+Django
+django-filter
+djangorestframework
+djangorestframework-simplejwt
+django-cors-headers
+drf-yasg
+psycopg2-binary
+dj-database-url
+pyyaml 
+uritemplate
+gunicorn
+whitenoise
