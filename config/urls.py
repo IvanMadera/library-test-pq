@@ -28,6 +28,8 @@ from rest_framework_simplejwt.views import (
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 
+from apps.books.urls import urlpatterns as books_urlpatterns
+
 admin.site.site_header = "BASE Admin"
 admin.site.site_title = "BASE Admin Portal"
 admin.site.index_title = "Welcome to BASE Administration Portal"
@@ -66,6 +68,7 @@ apidocs_urlpatterns = [
 
 api_urlpatterns = [
     path('', include(router.urls)),
+    path('books/', include(books_urlpatterns)),
     path('auth/', include(auth_urlpatterns)),
     path('docs/', include(apidocs_urlpatterns))
 ]
