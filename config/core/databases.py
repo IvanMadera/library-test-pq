@@ -7,11 +7,11 @@ import dj_database_url
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'testdb_4xr4',
+        'NAME': 'postgres',
     },
     'atomic': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'testdb_4xr4',
+        'NAME': 'postgres',
     }
 }
 
@@ -19,6 +19,6 @@ DATABASE_URL = os.environ.get(
     'DATABASE_URL', 'postgres://postgres:postgres@localhost:5432/postgres')
 
 DATABASES['default'] = dj_database_url.config(
-    default=DATABASE_URL, conn_max_age=0)
+    default=DATABASE_URL, conn_max_age=600)
 
 DATABASES['atomic'] = DATABASES['default']
