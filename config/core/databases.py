@@ -16,7 +16,7 @@ DATABASES = {
 }
 
 DATABASE_URL = os.environ.get(
-    'DATABASE_URL', 'postgres://postgres:postgres@localhost:5432/postgres')
+    'postgres://paramq:MbuLlvLjgz2asnTDfs6TCWX9lshbi8EE@dpg-cc7uol4gqg4fs9crb140-a/testdb_4xr4')
 
 DATABASES['default'] = dj_database_url.config(
     default=DATABASE_URL, conn_max_age=600)
